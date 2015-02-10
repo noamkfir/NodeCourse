@@ -10,12 +10,13 @@ var server= net.createServer(function(socket){
     clients.push(socket);
 
     socket.on("data",function(data){
-
+        console.log(data.toString());
         clients.forEach(function(client){
             if(client!==socket){
-                console.log(data.toString());
                 client.write(data);
-            };
+            }else{
+                client.write("command executed\n");
+            }
         })  
     });
 

@@ -9,9 +9,9 @@ var requestHandler = function(req,res){
     var response = 'Hello World';
     res.writeHead(200,
         {
-            'Content-Type': 'text/plain',
-            'Content-Length': response.length,
-            //'Connection': 'Close'
+            'Content-Type': 'text/plain'
+            //'Content-Length': response.length
+            //'Connection': 'keep-alive'
         });
     res.write(response);
     res.end();
