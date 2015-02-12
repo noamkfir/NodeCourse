@@ -2,7 +2,8 @@
 	"folders":
 	[
 		{
-			"path": "/C/sela/git/NodeCourse"
+			"follow_symlinks": true,
+			"path": "."
 		}
 	]
 }

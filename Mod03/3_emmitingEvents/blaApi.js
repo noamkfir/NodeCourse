@@ -1,6 +1,6 @@
 var eventEmitter = require('events').EventEmitter;
 
-exports.bla = function(){
+module.exports.bla = function(){
 
     e = new eventEmitter();
 

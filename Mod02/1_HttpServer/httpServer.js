@@ -4,14 +4,13 @@ var server = http.createServer();
 
 var requestHandler = function(req,res){
 
-    console.log('request');
-    
+    console.log('request +',req.url);
     var response = 'Hello World';
     res.writeHead(200,
         {
-            'Content-Type': 'text/plain'
-            //'Content-Length': response.length
-            //'Connection': 'keep-alive'
+            'Content-Type': 'text/plain',
+            'Content-Length': response.length,
+            'Connection': 'Keep-Alive'
         });
     res.write(response);
     res.end();
