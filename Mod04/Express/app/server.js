@@ -5,7 +5,7 @@ var session = require("express-session");
 var app= express();
 
 var indexRoutes=require("./routes/index");
-var userRoutes=require("./routes/userMongo");		
+var userRoutes=require("./routes/users");		
 
 app.set("view engine","jade");
 app.set("views",path.join(__dirname,"views"));
