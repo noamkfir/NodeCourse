@@ -6,8 +6,8 @@
 
 	$(function(){
 
-		var chatAdmin =io("/chatAdmin");
-		var chatCom =io.connect("/chatCom");
+		var chatAdmin =io("chatAdmin");
+		var chatCom =io.connect("chatCom");
 		
 		nickModal=$(".modal").modal();
 		nickModal.find("button").click(function(){

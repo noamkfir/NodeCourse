@@ -212,57 +212,26 @@
 	"buffers":
 	[
 		{
-			"file": "Mod04/Express/app/server.js",
+			"file": "Mod03/3_emmitingEvents/blaApi.js",
 			"settings":
 			{
-				"buffer_size": 878,
+				"buffer_size": 285,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Mod04/Express/app/views/users.jade",
+			"file": "Challenges/HttpServer/challenge/server.js",
 			"settings":
 			{
-				"buffer_size": 224,
+				"buffer_size": 1075,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Mod04/Express/app/models/users.js",
+			"file": "Challenges/HttpServer/solution/server.js",
 			"settings":
 			{
-				"buffer_size": 600,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Mod04/Express/app/routes/users.js",
-			"settings":
-			{
-				"buffer_size": 754,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Mod04/Express/app/routes/userMongo.js",
-			"settings":
-			{
-				"buffer_size": 894,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Mod04/Express/app/routes/index.js",
-			"settings":
-			{
-				"buffer_size": 481,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"settings":
-			{
-				"buffer_size": 0,
+				"buffer_size": 947,
 				"line_ending": "Unix"
 			}
 		}
@@ -318,7 +287,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 530.0
+		"width": 472.0
 	},
 	"console":
 	{
@@ -340,15 +309,20 @@
 	"expanded_folders":
 	[
 		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse",
-		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Challenges/Express",
-		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Challenges/Express/challenge",
-		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Challenges/Express/challenge/public",
-		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Challenges/Express/solution",
-		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Challenges/Express/solution/public",
-		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod03/2_advancedModules",
-		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod03/2_advancedModules/logger",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Challenges",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Challenges/HttpServer",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Challenges/HttpServer/challenge",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Challenges/HttpServer/solution",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod01/1_AsyncServer",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod01/2_setTimeout",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod01/3_FileSystem",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod02/2_HttpInput",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod02/3_HttpChunked",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod02/4_Net",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod03/1_creatingModules",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod03/2_advancedModules/logger/node_modules",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod03/2_advancedModules/node_modules",
 		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod03/3_emmitingEvents",
-		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod04",
 		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod04/Express",
 		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod04/Express/app",
 		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod04/Express/app/models",
@@ -359,18 +333,35 @@
 	],
 	"file_history":
 	[
-		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod04/Express/app/routes/userMongo.js",
-		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod04/Express/app/views/home.jade",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod01/1_AsyncServer/server.js",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod01/2_setTimeout/main.js",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod01/3_FileSystem/list.js",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod01/3_FileSystem/readfilesync.js",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod01/3_FileSystem/readfileasync.js",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod01/3_FileSystem/pipes.js",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod02/1_HttpServer/main.js",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod02/1_HttpServer/httpServer.js",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod02/2_HttpInput/urlClass.js",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod02/2_HttpInput/queryString.js",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod02/3_HttpChunked/chunked.js",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod02/4_Net/server.js",
 		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod03/2_advancedModules/app.js",
-		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod03/2_advancedModules/usingGlobals.js",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod03/2_advancedModules/package.json",
 		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod03/3_emmitingEvents/app.js",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod03/2_advancedModules/logger/logger.js",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod04/Express/app/routes/users.js",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod04/Express/app/server.js",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod04/Express/app/views/users.jade",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod04/Express/app/models/users.js",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod04/Express/app/routes/userMongo.js",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod04/Express/app/routes/index.js",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod04/Express/app/views/home.jade",
+		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod03/2_advancedModules/usingGlobals.js",
 		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod03/3_emmitingEvents/blaApi.js",
 		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Challenges/Express/solution/challenge.js",
 		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Challenges/HttpServer/challenge/server.js",
 		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Challenges/HttpServer/solution/server.js",
-		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod04/Express/app/models/users.js",
 		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Challenges/Express/solution/package.json",
-		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Mod03/2_advancedModules/logger/logger.js",
 		"/Users/nirnoy/Library/Application Support/Sublime Text 3/Packages/FileBrowser/dired.sublime-settings",
 		"/Users/nirnoy/Library/Application Support/Sublime Text 3/Packages/User/dired.sublime-settings",
 		"/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/SocketIO/public/scripts/chat.js",
@@ -469,24 +460,7 @@
 		"/C/sela/git/NodeCourse/Mod03/3_emmitingEvents/app.js",
 		"/C/sela/git/NodeCourse/Mod03/3_emmitingEvents/inherits.js",
 		"/C/sela/git/NodeCourse/Mod10/2_jasmin/specs/spechelper.js",
-		"/C/sela/git/NodeCourse/Mod10/2_jasmin/specs/calcSpec.js",
-		"/C/sela/git/NodeCourse/Mod10/2_jasmin/spiesSpecs/spiesSpec.js",
-		"/C/sela/git/NodeCourse/Mod10/1_mocha/test/calctest.js",
-		"/C/sela/git/NodeCourse/Mod10/1_mocha/test-final/calctest.js",
-		"/C/sela/git/NodeCourse/Mod07/1_simple_cluster/final/app.js",
-		"/C/sela/git/NodeCourse/Mod07/1_simple_cluster/app.js",
-		"/C/sela/git/NodeCourse/Mod07/0_child_process/fork.js",
-		"/C/sela/git/NodeCourse/Mod07/0_child_process/calc.js",
-		"/C/sela/git/NodeCourse/Mod06/views/users.jade",
-		"/C/sela/git/NodeCourse/Mod08/1_async/async_series.js",
-		"/C/sela/git/NodeCourse/Mod08/1_async/async_parallel.js",
-		"/C/sela/git/NodeCourse/Mod08/1_async/final/async_waterfall.js",
-		"/C/sela/git/NodeCourse/Mod08/1_async/pyramid.js",
-		"/C/sela/git/NodeCourse/Mod06/final/challenge/package.json",
-		"/C/sela/git/NodeCourse/Mod03/3_emmitingEvents/app2.js",
-		"/C/sela/git/NodeCourse/Mod08/1_async/final/async_series.js",
-		"/C/sela/git/NodeCourse/Mod08/1_async/final/async_serial.js",
-		"/C/sela/git/NodeCourse/Mod08/1_async/final/async_parallel.js"
+		"/C/sela/git/NodeCourse/Mod10/2_jasmin/specs/calcSpec.js"
 	],
 	"find":
 	{
@@ -562,115 +536,29 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Mod04/Express/app/server.js",
+					"file": "Mod03/3_emmitingEvents/blaApi.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 878,
+						"buffer_size": 285,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								427,
-								427
+								90,
+								114
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Mod04/Express/app/views/users.jade",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 224,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								14,
-								14
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "Mod04/Express/app/models/users.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 600,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								558,
-								558
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Mod04/Express/app/routes/users.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 754,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								70,
-								34
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -680,87 +568,63 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "Mod04/Express/app/routes/userMongo.js",
+					"buffer": 1,
+					"file": "Challenges/HttpServer/challenge/server.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 894,
+						"buffer_size": 1075,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								656,
-								656
+								957,
+								957
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 366.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Challenges/HttpServer/solution/server.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 947,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								215,
+								215
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "Mod04/Express/app/routes/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 481,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"default_dir": "/Users/nirnoy/Documents/Sela/SelaCourses/NodeJS/samples/NodeCourse/Challenges/Express/challenge/public/css",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -826,7 +690,7 @@
 		[
 			[
 				"",
-				"C:\\conduit-git\\webshots\\webshots.sublime-project"
+				"~/Documents/ExpressJS/NodeExpress.sublime-project"
 			]
 		],
 		"width": 380.0

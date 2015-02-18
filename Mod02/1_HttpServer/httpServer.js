@@ -10,7 +10,7 @@ var requestHandler = function(req,res){
         {
             'Content-Type': 'text/plain',
             'Content-Length': response.length,
-            'Connection': 'Keep-Alive'
+            'Connection': 'close'
         });
     res.write(response);
     res.end();

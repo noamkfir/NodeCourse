@@ -1,11 +1,10 @@
 {
-  "name": "2_advancedModules",
+  "name": "3_respawn",
   "version": "1.0.0",
-  "description": "asljkjsalkjklasd",
+  "description": "",
   "main": "app.js",
   "dependencies": {
-    "colors": "^0.6.2",
-    "underscore": "^1.7.0"
+    "colors": "^1.0.3"
   },
   "devDependencies": {},
   "scripts": {

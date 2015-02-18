@@ -1,11 +1,10 @@
 {
   "name": "2_advancedModules",
   "version": "1.0.0",
-  "description": "asljkjsalkjklasd",
+  "description": "jkjk",
   "main": "app.js",
   "dependencies": {
-    "colors": "^0.6.2",
-    "underscore": "^1.7.0"
+    "colors": "^0.6.2"
   },
   "devDependencies": {},
   "scripts": {

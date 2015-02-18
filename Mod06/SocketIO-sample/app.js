@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var server = require('http').Server(app);
-var chatService = require('./services/chatService');
+var chatService= require('./services/chatService');
 
 app.set('view engine','jade');
 app.set('views',__dirname + "/views");
