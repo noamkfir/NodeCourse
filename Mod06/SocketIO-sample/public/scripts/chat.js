@@ -9,18 +9,19 @@
 
 		panel=$("#chatPanel");
 
-		var adminSocket = io.connect(rootUrl+'chatAdmin');
-		adminSocket.on("newMessage",function(data){
-			displayMessage(data);
-		});
-
-		var socket = io.connect(rootUrl+'chatCom');
-
 		nickModal=$(".modal").modal();
 		nickModal.find("button").click(function(){
 			var nick=nickModal.find('input').val();
 			socket.emit("set_name",{nickname:nick});
 		});
+
+		var socket =io.connect(rootUrl+"/chatCom");
+		var socketAdmin = io.connect(rootUrl + "/chatAdmin");
+
+		socketAdmin.on("newMessage",function(data){
+			displayMessage(data);
+		});
+		
 		socket.on("newMessage",function(data){
 			displayMessage(data);
 		});
@@ -32,11 +33,15 @@
 
 		socket.on("user_joined",function(data){
 			displayMessage(data);
-		});
+		})
+
 		$("#sendBtn").click(function(){
 			var txt=$("#msgInput").val();
 			socket.emit("newMessage",{type:"userMessage",message:txt});
 		});
+
+
+		
 
 
 	});
@@ -65,6 +70,7 @@
 	
 			panel.append(html.join(''));
 	}
+
 
 
 

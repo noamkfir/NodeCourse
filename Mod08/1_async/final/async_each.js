@@ -25,7 +25,7 @@ function doSomethingOnceAllAreDone(){
 
 async.each(items,function(item,callback){
       item.someAsyncCall(function(){
-        callback();
+        callback('werwerwer');
       });
 },function(err){
   if(err) throw err;

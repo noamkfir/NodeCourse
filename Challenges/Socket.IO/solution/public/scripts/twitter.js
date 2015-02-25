@@ -1,9 +1,9 @@
 (function(){
-
+	var rootUrl = [document.location.protocol,"//",document.location.host,"/"].join('');
 	var panel;
 
 	$(function(){
-		var socket=io.connect("/");
+		var socket=io.connect(rootUrl);
 
 		socket.on("message",function(data){
 			var tweet = JSON.parse(data);

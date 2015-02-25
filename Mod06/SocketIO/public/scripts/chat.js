@@ -1,13 +1,15 @@
 (function(){
 
+	
+	var rootUrl = [document.location.protocol,"//",document.location.host,"/"].join('');
 	var panel;
 	var button;
 	var nickModal;
 
 	$(function(){
 
-		var chatAdmin =io("chatAdmin");
-		var chatCom =io.connect("chatCom");
+		var chatAdmin =io(rootUrl + "chatAdmin");
+		var chatCom =io.connect(rootUrl+ "chatCom");
 		
 		nickModal=$(".modal").modal();
 		nickModal.find("button").click(function(){

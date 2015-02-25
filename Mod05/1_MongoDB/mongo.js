@@ -9,4 +9,4 @@ app.set('views', __dirname + '/views');
 
 students.init(app);
 
-app.listen(747);
+app.listen(3000);
