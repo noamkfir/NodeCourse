@@ -10,6 +10,9 @@ jQuery(function ($) {
 	var ESCAPE_KEY = 27;
 
 	var util = {
+
+
+
 		uuid: function () {
 			/*jshint bitwise:false */
 			var i, random;
@@ -28,28 +31,77 @@ jQuery(function ($) {
 		pluralize: function (count, word) {
 			return count === 1 ? word : word + 's';
 		},
-		store: function (namespace, data) {
-			if (arguments.length > 1) {
-				return localStorage.setItem(namespace, JSON.stringify(data));
-			} else {
-				var store = localStorage.getItem(namespace);
-				return (store && JSON.parse(store)) || [];
+		store: function (namespace,task,callback) {
+
+            var cb = arguments.length > 2 ? callback : task;
+
+            if (arguments.length > 2) {
+                var store=localStorage.getItem(namespace);
+                store=store && JSON.parse(store) || [];
+                store.push(task);
+                localStorage.setItem(namespace, JSON.stringify(store));
+                cb(task);
+                //$.ajax("/tasks",{
+                //    type:"PUT",
+                //    data:JSON.stringify(task),
+                //    headers:{
+                //        "Content-Type":"application/json"
+                //    }
+                //}).success(cb);
 			}
-		}
+            else{
+                var store=localStorage.getItem(namespace);
+                store=store && JSON.parse(store) || [];
+                //$.ajax("/tasks",{
+                //    type:"GET"
+                //}).success(cb);
+                cb(store);
+            }
+		},
+        delete: function(namespace,_tasks,callback){
+            var store=localStorage.getItem(namespace);
+            store=store && JSON.parse(store) || [];
+
+            var remove=function(task){
+                var inx= $.inArray(task,store);
+                if(inx>=0){
+                    store.splice(inx,1);
+                }
+            }
+
+            if($.isArray(_tasks)){
+                _tasks.forEach(function(t){
+                    remove(t);
+                });
+            }
+            else{
+                remove(_tasks);
+            }
+
+            callback(store);
+
+
+
+        }
 	};
 
 	var App = {
 		init: function () {
-			this.todos = util.store('todos-jquery');
-			this.cacheElements();
-			this.bindEvents();
+            var self=this;
+			util.store('todos-jquery',function(data){
+                self.todos=data || [];
+                self.cacheElements();
+                self.bindEvents();
 
-			Router({
-				'/:filter': function (filter) {
-					this.filter = filter;
-					this.render();
-				}.bind(this)
-			}).init('/all');
+                Router({
+                    '/:filter': function (filter) {
+                        self.filter = filter;
+                        self.render();
+                    }.bind(self)
+                }).init('/all');
+            });
+
+
 		},
 		cacheElements: function () {
 			this.todoTemplate = Handlebars.compile($('#todo-template').html());
@@ -82,7 +134,7 @@ jQuery(function ($) {
 			this.$toggleAll.prop('checked', this.getActiveTodos().length === 0);
 			this.renderFooter();
 			this.$newTodo.focus();
-			util.store('todos-jquery', this.todos);
+			//util.store('todos-jquery', this.todos);
 		},
 		renderFooter: function () {
 			var todoCount = this.todos.length;
@@ -152,15 +204,22 @@ jQuery(function ($) {
 				return;
 			}
 
-			this.todos.push({
+			var task={
 				id: util.uuid(),
 				title: val,
 				completed: false
-			});
+			};
+            var self=this;
+            util.store('todos-jquery',task,function(data){
+                self.todos.push(data);
+                self.render();
+
+            });
+
 
 			$input.val('');
 
-			this.render();
+
 		},
 		toggle: function (e) {
 			var i = this.indexFromEl(e.target);
@@ -202,8 +261,12 @@ jQuery(function ($) {
 			this.render();
 		},
 		destroy: function (e) {
-			this.todos.splice(this.indexFromEl(e.target), 1);
-			this.render();
+            var inx=this.indexFromEl(e.target)
+            var that=this;
+            util.delete('todos-jquery',this.todos[inx],function(data) {
+                that.todos=data;
+                that.render();
+            });
 		}
 	};
 
