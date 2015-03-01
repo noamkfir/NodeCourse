@@ -10,9 +10,6 @@ jQuery(function ($) {
 	var ESCAPE_KEY = 27;
 
 	var util = {
-
-
-
 		uuid: function () {
 			/*jshint bitwise:false */
 			var i, random;
@@ -63,10 +60,10 @@ jQuery(function ($) {
             store=store && JSON.parse(store) || [];
 
             var remove=function(task){
-                var inx= $.inArray(task,store);
-                if(inx>=0){
-                    store.splice(inx,1);
-                }
+             	var filtered = store.filter(function(item){
+					return item.id!==task.id;
+				})
+				store=filtered;
             }
 
             if($.isArray(_tasks)){
@@ -77,12 +74,31 @@ jQuery(function ($) {
             else{
                 remove(_tasks);
             }
-
+			localStorage.setItem(namespace, JSON.stringify(store));
             callback(store);
+        },
+		update: function(namespace,_tasks,callback){
+			var store=localStorage.getItem(namespace);
+			store=store && JSON.parse(store) || [];
 
+			var update=function(task){
+				var updated = store.map(function(item){
+					return item.id===task.id ? task : item;
+				})
+				store=updated;
+			}
 
-
-        }
+			if($.isArray(_tasks)){
+				_tasks.forEach(function(t){
+					update(t);
+				});
+			}
+			else{
+				update(_tasks);
+			}
+			localStorage.setItem(namespace, JSON.stringify(store));
+			callback(store);
+		}
 	};
 
 	var App = {
@@ -149,11 +165,18 @@ jQuery(function ($) {
 			this.$footer.toggle(todoCount > 0).html(template);
 		},
 		toggleAll: function (e) {
+			var that=this;
 			var isChecked = $(e.target).prop('checked');
-
 			this.todos.forEach(function (todo) {
 				todo.completed = isChecked;
 			});
+
+			util.update('todos-jquery',this.todos,function(data){
+				that.todos=data;
+				that.render();
+			});
+
+
 
 			this.render();
 		},
@@ -179,9 +202,13 @@ jQuery(function ($) {
 			return this.todos;
 		},
 		destroyCompleted: function () {
-			this.todos = this.getActiveTodos();
-			this.filter = 'all';
-			this.render();
+			var that = this;
+			util.delete('todos-jquery',this.getCompletedTodos(),function(data){
+				that.todos=data;
+				that.filter = 'all';
+				that.render();
+			});
+
 		},
 		// accepts an element from inside the `.item` div and
 		// returns the corresponding index in the `todos` array
@@ -222,9 +249,14 @@ jQuery(function ($) {
 
 		},
 		toggle: function (e) {
+			var that = this;
 			var i = this.indexFromEl(e.target);
-			this.todos[i].completed = !this.todos[i].completed;
-			this.render();
+			var task = $.extend({}, this.todos[i]);
+			task.completed=!task.completed;
+			util.update('todos-jquery',task,function(data){
+				that.todos=data;
+				that.render();
+			});
 		},
 		edit: function (e) {
 			var $input = $(e.target).closest('li').addClass('editing').find('.edit');
