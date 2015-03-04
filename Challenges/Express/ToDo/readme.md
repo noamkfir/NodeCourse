@@ -29,24 +29,24 @@ This challenge is divided to x steps.
 4. **CRUD**
     1. inside [/public/javascripts/app.js]() go to the util object.
     2. util.store - this function is used to get and create tasks.
-            store: function (namespace,task,callback) {
-                var cb = arguments.length > 2 ? callback : task;
-                if (arguments.length > 2) {
-                    $.ajax("/tasks",{
-                        type:"PUT",
-                        data:JSON.stringify(task),
-                        headers:{
-                            "Content-Type":"application/json"
-                        }
-                    }).success(cb);
-    			}
-                else{
-                    $.ajax("/tasks",{
-                        type:"GET"
-                    }).success(cb);
-                    //cb(store);
+                store: function (namespace,task,callback) {
+                    var cb = arguments.length > 2 ? callback : task;
+                    if (arguments.length > 2) {
+                        $.ajax("/tasks",{
+                            type:"PUT",
+                            data:JSON.stringify(task),
+                            headers:{
+                                "Content-Type":"application/json"
+                            }
+                        }).success(cb);
+                    }
+                    else{
+                        $.ajax("/tasks",{
+                            type:"GET"
+                        }).success(cb);
+                        //cb(store);
+                    }
                 }
-            }
     inside the router created in section 2 create the routes for the ajax calls in the above method. your api should follow RESTful conventions i.e
 GET for fecthing, PUT for create, POST for update and DELETE for remove.
 your api endpoints should use the service defined in [/services/tasks]() for the appropriate methods.
