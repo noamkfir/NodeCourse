@@ -30,67 +30,70 @@ This challenge is divided to x steps.
     1. inside [/public/javascripts/app.js]() go to the util object.
     2. util.store - this function is used to get and create tasks.
 
-    ```
-        store: function (namespace,task,callback) {
-            var cb = arguments.length > 2 ? callback : task;
-            if (arguments.length > 2) {
-                $.ajax("/tasks",{
-                    type:"PUT",
-                    data:JSON.stringify(task),
-                    headers:{
-                        "Content-Type":"application/json"
-                    }
-                }).success(cb);
+        ```
+            store: function (namespace,task,callback) {
+                var cb = arguments.length > 2 ? callback : task;
+                if (arguments.length > 2) {
+                    $.ajax("/tasks",{
+                        type:"PUT",
+                        data:JSON.stringify(task),
+                        headers:{
+                            "Content-Type":"application/json"
+                        }
+                    }).success(cb);
+                }
+                else{
+                    $.ajax("/tasks",{
+                        type:"GET"
+                    }).success(cb);
+                    //cb(store);
+                }
             }
-            else{
-                $.ajax("/tasks",{
-                    type:"GET"
-                }).success(cb);
-                //cb(store);
-            }
-        }
-    ```
+        ```
     inside the router created in section 2 create the routes for the ajax calls in the above method. your api should follow RESTful conventions i.e GET for fecthing, PUT for create, POST for update and DELETE for remove.
     your api endpoints should use the service defined in [/services/tasks]() for the appropriate methods.
 
     3. Create an api endpoint for the util.update method:
-    ```
-    update: function(namespace,_tasks,callback){
-        var params={};
-        if($.isArray(_tasks)){
-            params.tasks=_tasks;
-        }
-        else{
-            params.tasks=[_tasks]
-        }
-        $.ajax("/tasks",{
-            type:"POST",
-            data:JSON.stringify(params),
-            headers:{
-                "Content-Type":"application/json"
-            }
-        }).success(callback)
-    }
-    ```
-    4.  create an api endpoint for the util.delete method:
-    ```
-        delete: function(namespace,_tasks,callback){
-            var params ={};
+
+        ```
+        update: function(namespace,_tasks,callback){
+            var params={};
             if($.isArray(_tasks)){
                 params.tasks=_tasks;
             }
             else{
-                params.tasks=[_tasks];
+                params.tasks=[_tasks]
             }
             $.ajax("/tasks",{
-                type:"DELETE",
+                type:"POST",
                 data:JSON.stringify(params),
                 headers:{
                     "Content-Type":"application/json"
                 }
-            }).success(callback);
+            }).success(callback)
         }
-    ```
+        ```
+        
+    4.  create an api endpoint for the util.delete method:
+
+        ```
+            delete: function(namespace,_tasks,callback){
+                var params ={};
+                if($.isArray(_tasks)){
+                    params.tasks=_tasks;
+                }
+                else{
+                    params.tasks=[_tasks];
+                }
+                $.ajax("/tasks",{
+                    type:"DELETE",
+                    data:JSON.stringify(params),
+                    headers:{
+                        "Content-Type":"application/json"
+                    }
+                }).success(callback);
+            }
+        ```
 
 5. **Mongoose** - rewrite the entire task service to use [Mongoose](http://mongoosejs.com/) and connect to a MongoDB instance. 
 you can create a MongoDB instance in [MongoLab](https://mongolab.com)
