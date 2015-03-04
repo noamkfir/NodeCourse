@@ -50,8 +50,7 @@ This challenge is divided to x steps.
         }
     }
 ```
-
-    inside the router created in section 2 create the routes for the ajax calls in the above method. your api should follow RESTful conventions i.e
+inside the router created in section 2 create the routes for the ajax calls in the above method. your api should follow RESTful conventions i.e
 GET for fecthing, PUT for create, POST for update and DELETE for remove.
 your api endpoints should use the service defined in [/services/tasks]() for the appropriate methods.
 
