@@ -54,26 +54,27 @@ GET for fecthing, PUT for create, POST for update and DELETE for remove.
 your api endpoints should use the service defined in [/services/tasks]() for the appropriate methods.
 
     3. Create an api endpoint for the util.update method:
-    		```
-    		update: function(namespace,_tasks,callback){
-                var params={};
-    			if($.isArray(_tasks)){
-                    params.tasks=_tasks;
-    			}
-    			else{
-                    params.tasks=[_tasks]
-    			}
-                $.ajax("/tasks",{
-                    type:"POST",
-                    data:JSON.stringify(params),
-                    headers:{
-                        "Content-Type":"application/json"
-                    }
-                }).success(callback)
-    		}
-    		```
-	
+
+    ```
+update: function(namespace,_tasks,callback){
+    var params={};
+    if($.isArray(_tasks)){
+        params.tasks=_tasks;
+    }
+    else{
+        params.tasks=[_tasks]
+    }
+    $.ajax("/tasks",{
+        type:"POST",
+        data:JSON.stringify(params),
+        headers:{
+            "Content-Type":"application/json"
+        }
+    }).success(callback)
+}
+```
     4.  create an api endpoint for the util.delete method:
+
             ```
             delete: function(namespace,_tasks,callback){
                 var params ={};
