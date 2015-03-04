@@ -33,11 +33,7 @@ jQuery(function ($) {
             var cb = arguments.length > 2 ? callback : task;
 
             if (arguments.length > 2) {
-                //var store=localStorage.getItem(namespace);
-                //store=store && JSON.parse(store) || [];
-                //store.push(task);
-                //localStorage.setItem(namespace, JSON.stringify(store));
-                //cb(task);
+
                 $.ajax("/tasks",{
                     type:"PUT",
                     data:JSON.stringify(task),
@@ -47,8 +43,7 @@ jQuery(function ($) {
                 }).success(cb);
 			}
             else{
-                //var store=localStorage.getItem(namespace);
-                //store=store && JSON.parse(store) || [];
+
                 $.ajax("/tasks",{
                     type:"GET"
                 }).success(cb);
@@ -56,27 +51,17 @@ jQuery(function ($) {
             }
 		},
         delete: function(namespace,_tasks,callback){
-            var store=localStorage.getItem(namespace);
-            store=store && JSON.parse(store) || [];
 
-            var remove=function(task){
-             	var filtered = store.filter(function(item){
-					return item.id!==task.id;
-				})
-				store=filtered;
-            }
             var params ={};
             if($.isArray(_tasks)){
-                //_tasks.forEach(function(t){
-                //    remove(t);
-                //});
+
                 params.tasks=_tasks;
             }
             else{
-                //remove(_tasks);
+
                 params.tasks=[_tasks];
             }
-			//localStorage.setItem(namespace, JSON.stringify(store));
+
             $.ajax("/tasks",{
                 type:"DELETE",
                 data:JSON.stringify(params),
@@ -84,31 +69,20 @@ jQuery(function ($) {
                     "Content-Type":"application/json"
                 }
             }).success(callback);
-            //callback(store);
+
         },
 		update: function(namespace,_tasks,callback){
-			//var store=localStorage.getItem(namespace);
-			//store=store && JSON.parse(store) || [];
-            //
-			//var update=function(task){
-			//	var updated = store.map(function(item){
-			//		return item.id===task.id ? task : item;
-			//	})
-			//	store=updated;
-			//}
+
             var params={};
 			if($.isArray(_tasks)){
-				//_tasks.forEach(function(t){
-				//	update(t);
-				//});
+
                 params.tasks=_tasks;
 			}
 			else{
-				//update(_tasks);
+
                 params.tasks=[_tasks]
 			}
-			//localStorage.setItem(namespace, JSON.stringify(store));
-			//callback(store);
+
             $.ajax("/tasks",{
                 type:"POST",
                 data:JSON.stringify(params),
