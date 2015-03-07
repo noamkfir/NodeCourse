@@ -1,7 +1,7 @@
 # ToDo List Challenge
 
 In this challenge you will create a simple ToDo List web application that interacts with an ExpressJS backend.
-
+this application is based on [ToDoMvc jQuery implementation](http://todomvc.com/)
 inside [/ToDoListChallenge/app](https://github.com/noynir/NodeCourse/tree/master/Challenges/Express/ToDo/ToDoListChallenge/app) you'll find a small skeleton for an ExpressJs application.
 in this skeleton you will need to use and refactor the following files
    * [/app.js]() - the root of the ExpressJS application
@@ -22,7 +22,7 @@ This challenge is divided to 5 steps.
    The router should contain a route for "/tasks" and return a JSON response with an array of random values.
 
 3.  **Jade**
-    1. Open the [/views/index.html]() file and convert all the content                inside the 
+    1. Open the [/views/index.html]() file and convert all the content inside the
     >Convert This part in index.jade file 
     
         comment to jade syntax inside the [/views/index.jade]() file.
