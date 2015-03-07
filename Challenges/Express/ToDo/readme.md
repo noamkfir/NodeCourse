@@ -12,8 +12,11 @@ in this skeleton you will need to use and refactor the following files
 
 This challenge is divided to 5 steps.
 
-1. **Express** - Create an express application, that listens on port 3000 with a single route for the application's Root.
-   The route should return a "hello world" message as the response.
+
+1. **Express** - Create an express application, that listens on port 3000 and includes as follows:
+   1. Create a middleware function that print to console the url of every incoming request.
+   2. Create a single route for the application's root that returns a "hello world" message as the response.
+
 
 2. **Express Router** - Create a new express Router on a separate module.
    The router should contain a route for "/tasks" and return a JSON response with an array of random values.
