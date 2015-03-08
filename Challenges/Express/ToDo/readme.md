@@ -58,7 +58,7 @@ This challenge is divided to 5 steps.
 
     3. Create an api endpoint for the util.update method:
 
-        ```
+        ``` javascript
         update: function(namespace,_tasks,callback){
             var params={};
             if($.isArray(_tasks)){
