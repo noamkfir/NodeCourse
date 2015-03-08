@@ -33,7 +33,7 @@ This challenge is divided to 5 steps.
     1. inside [/public/javascripts/app.js]() go to the util object.
     2. util.store - this function is used to get and create tasks.
 
-        ```
+        ``` javascript
             store: function (namespace,task,callback) {
                 var cb = arguments.length > 2 ? callback : task;
                 if (arguments.length > 2) {
@@ -79,7 +79,7 @@ This challenge is divided to 5 steps.
 
     4.  create an api endpoint for the util.delete method:
 
-        ```
+        ``` javascript
             delete: function(namespace,_tasks,callback){
                 var params ={};
                 if($.isArray(_tasks)){
