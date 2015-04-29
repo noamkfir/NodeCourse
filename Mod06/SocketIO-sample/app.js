@@ -4,6 +4,7 @@ var server = require('http').Server(app);
 var chatService = require("./services/chatService");
 
 
+
 app.set('view engine','jade');
 app.set('views',__dirname + "/views");
 app.use(express.static(__dirname+'/public'));

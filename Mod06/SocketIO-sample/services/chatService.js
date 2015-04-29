@@ -8,6 +8,30 @@ module.exports.init=function(server){
 		this.nickname = nick;
 	}
 	
+	io=io(server);
+
+
+
+
+	io.on("connection",function(socket){
+		socket.emit("newMessage",new Message("serverMessage"
+			,"Welcome To incrediable chat"));
+
+		socket.on("newMessage",function(data){
+			data.nickname=socket.nickname;
+			socket.broadcast.emit("newMessage",data);
+			data.type="myMessage";
+			socket.emit("newMessage",data);
+		})
+
+		socket.on("set_name",function(data){
+			socket.nickname=data.nickname;
+			socket.emit("name_set",new Message("serverMessage","hi "+socket.nickname));
+			socket.broadcast.emit("newMessage",new Message("serverMessage",socket.nickname+" has joined"));
+		})
+	});
+
+
 
 
 }
