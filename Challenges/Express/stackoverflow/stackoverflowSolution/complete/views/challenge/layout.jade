@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    nav.navbar.navbar-default.navbar-fixed-top
+      div.container-fluid
+        div.navbar-header
+          a.navbar-brand(href="/")
+            img(src="/images/nodejs.png")
+        ul.nav.navbar-nav
+          li
+            a(href="start") Start
+          li
+            a(href="questions") Questions
+          li
+            a(href="search") Search
+
+
+    div.container.main
+      block content
+
+
+

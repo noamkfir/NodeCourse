@@ -13,14 +13,13 @@ var handleRequests = function(req,res){
     var req2 = http.request(options, responseCallback = function(response) {
 
         res.writeHead(200, {'content-type': 'text/xml', 'Content-Encoding':'gzip'})
-        response.pipe(res);
-        // response.on('data', function (chunk) {
-        //     res.write(chunk);
-        // });
+        response.on('data', function (chunk) {
+             res.write(chunk);
+         });
 
-        // response.on('end', function(){
-        //     res.end();
-        // });
+         response.on('end', function(){
+             res.end();
+         });
     });
 
     req2.end();
