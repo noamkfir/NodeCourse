@@ -3,11 +3,11 @@ var logger = require('./logger.js');
 
 logger.log('Hello');
 
-setTimeout(function(){
+setTimeout(function() {
     logger.log(' going once');
 
-},1000);
+}, 1000);
 
-setTimeout(function(){
+setTimeout(function() {
     logger.log(' going twice');
-},2000);
+}, 2000);

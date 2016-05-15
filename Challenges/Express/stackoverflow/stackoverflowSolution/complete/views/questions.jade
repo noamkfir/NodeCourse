@@ -3,50 +3,50 @@
 
 extends layout
 block header
-   h2= q ? "Node.JS questions containing \""+q+"\"" : "Node.JS Questions"
+    h2= q ? "Node.JS questions containing \"" + q + "\"" : "Node.JS Questions"
 block content
-   each item in data.items
-      div.item.clearfix
-         div
-            div.meta.pull-left
-               div.votes.text-center.pull-left
-                  span
-                     strong #{item.score}
-                  div.text-center votes
-               div.answers.text-center.text-danger.pull-left
-                  span
-                     strong #{item.answer_count}
-                  div.text-center answers
-               div.views.text-center.text-muted.pull-left
-                  span
-                     string #{item.view_count}
-                  div.text-center views
-            div.question.pull-left
-               div.title
-                  a.text-primary(href=item.link, target="_blank") !{item.title}
-               div.clearfix.qmeta
-                  div.pull-left.tags
-                     div.clearfix
-                        each tag in item.tags
-                           span.label.label-info #{tag}
-                  div.pull-right.profile
-                    div.clearfix
-                       div.pull-left
-                           a(href=item.owner.link,target="_blank")
-                              img.img-responsive(src=item.owner.profile_image)
-                       div.pull-left.username
-                           div
-                              a.text-info(href=item.owner.link,target="_blank") #{item.owner.display_name}
+    each item in data.items
+        div.item.clearfix
+            div
+                div.meta.pull-left
+                    div.votes.text-center.pull-left
+                        span
+                            strong #{item.score}
+                        div.text-center votes
+                    div.answers.text-center.text-danger.pull-left
+                        span
+                            strong #{item.answer_count}
+                        div.text-center answers
+                    div.views.text-center.text-muted.pull-left
+                        span
+                            string #{item.view_count}
+                        div.text-center views
+                div.question.pull-left
+                    div.title
+                        a.text-primary(href=item.link, target="_blank") !{item.title}
+                    div.clearfix.qmeta
+                        div.pull-left.tags
+                            div.clearfix
+                                each tag in item.tags
+                                    span.label.label-info #{tag}
+                        div.pull-right.profile
+                            div.clearfix
+                                div.pull-left
+                                    a(href=item.owner.link,target="_blank")
+                                        img.img-responsive(src=item.owner.profile_image)
+                                div.pull-left.username
+                                    div
+                                        a.text-info(href=item.owner.link,target="_blank") #{item.owner.display_name}
 block pager
-   div
-      div
-         nav
-            ul.pager
-               li.previous(class=(curPage===1 ? "disabled" : "") )
-                  -var urlPrefix= q ? "/search?q="+q+"&page=" : "/questions/"
-                  a(href=curPage===1 ? "javascript:void(0)" : urlPrefix +(curPage-1) ) &larr; Previous
-               li.next(class=(data.has_more ? "" : "disabled") )
-                  a(href=data.has_more ? urlPrefix+(curPage+1):"javascript:void(0)"   ) Next &rarr;
+    div
+        div
+            nav
+                ul.pager
+                    li.previous(class=(curPage === 1 ? "disabled" : "") )
+                        -var urlPrefix= q ? "/search?q="+q+"&page=" : "/questions/"
+                        a(href=curPage === 1 ? "javascript:void(0)" : urlPrefix + (curPage - 1) ) &larr; Previous
+                    li.next(class=(data.has_more ? "" : "disabled") )
+                        a(href=data.has_more ? urlPrefix + (curPage + 1) : "javascript:void(0)"   ) Next &rarr;
 
 
 

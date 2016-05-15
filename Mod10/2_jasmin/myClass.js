@@ -2,7 +2,7 @@ function MyClass(dependency) {
     this.dependency = dependency;
 }
 
-MyClass.prototype.saveObject = function (o) {
+MyClass.prototype.saveObject = function(o) {
 
     var result = false;
     if (o) {
@@ -15,22 +15,21 @@ MyClass.prototype.saveObject = function (o) {
     return result;
 }
 
-MyClass.prototype.saveObjects = function (array) {
+MyClass.prototype.saveObjects = function(array) {
     for (i = 0; i < array.length; i++) {
-        if (array[i])
-        {
+        if (array[i]) {
             try {
                 this.dependency.save(array[i])
             } catch (e) {
                 console.log(e);
             }
         }
-        
+
     }
 }
 
 
-MyClass.prototype.getValueFromObject = function () {
+MyClass.prototype.getValueFromObject = function() {
     var val = this.dependency.getValue();
 
     if (val < 5) {
@@ -42,4 +41,4 @@ MyClass.prototype.getValueFromObject = function () {
 
 }
 
-module.exports=MyClass;
+module.exports = MyClass;

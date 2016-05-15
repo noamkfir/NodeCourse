@@ -7,19 +7,19 @@ var options = {
 };
 
 // handling incoming HTTP requests
-var handleRequests = function(req,res){
+var handleRequests = function(req, res) {
 
     // creating an outgoing HTTP request
     var req2 = http.request(options, responseCallback = function(response) {
 
-        res.writeHead(200, {'content-type': 'text/xml', 'Content-Encoding':'gzip'})
-        response.on('data', function (chunk) {
-             res.write(chunk);
-         });
+        res.writeHead(200, {'content-type': 'text/xml', 'Content-Encoding': 'gzip'})
+        response.on('data', function(chunk) {
+            res.write(chunk);
+        });
 
-         response.on('end', function(){
-             res.end();
-         });
+        response.on('end', function() {
+            res.end();
+        });
     });
 
     req2.end();

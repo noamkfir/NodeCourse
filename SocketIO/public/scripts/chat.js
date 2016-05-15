@@ -1,71 +1,70 @@
-(function(){
+(function() {
 
-	var panel;
-	var button;
-	var nickModal;
+    var panel;
+    var button;
+    var nickModal;
 
-	$(function(){
+    $(function() {
 
-		var chatAdmin =io("/chatAdmin");
-		var chatCom =io.connect("/chatCom");
-		
-		nickModal=$(".modal").modal();
-		nickModal.find("button").click(function(){
-			var nick=nickModal.find('input').val();
-			chatCom.emit("set_name",{nickname:nick});
-		});
+        var chatAdmin = io("/chatAdmin");
+        var chatCom = io.connect("/chatCom");
 
-		chatAdmin.on("adminMessage",function(data){
-			var msg=data;
-			displayMessage(msg);
-		});
-		chatCom.on("newMessage",function(data){
-			displayMessage(data);
-		});
+        nickModal = $(".modal").modal();
+        nickModal.find("button").click(function() {
+            var nick = nickModal.find('input').val();
+            chatCom.emit("set_name", {nickname: nick});
+        });
 
-		chatCom.on("name_set",function(data){
-			var msg = data;
-			displayMessage({type:"serverMessage",message:"Hi "+ data.nickname});
-			nickModal.modal('hide');
-		});
+        chatAdmin.on("adminMessage", function(data) {
+            var msg = data;
+            displayMessage(msg);
+        });
+        chatCom.on("newMessage", function(data) {
+            displayMessage(data);
+        });
 
-		chatCom.on("user_joined",function(data){
-			displayMessage({type:"serverMessage",message:data.nickname + ' Has joined'});
-		});
+        chatCom.on("name_set", function(data) {
+            var msg = data;
+            displayMessage({type: "serverMessage", message: "Hi " + data.nickname});
+            nickModal.modal('hide');
+        });
 
-		panel=$("#chatPanel");
-		$("#sendBtn").click(function(){
-			var txt=$("#msgInput").val();
-			chatCom.emit("newMessage",{
-				type:"userMessage",
-				message:txt
-			});
-		});
-	});
+        chatCom.on("user_joined", function(data) {
+            displayMessage({type: "serverMessage", message: data.nickname + ' Has joined'});
+        });
 
-	var displayMessage=function(msg){
-		var style = "text-primary";
-		var html=[];
+        panel = $("#chatPanel");
+        $("#sendBtn").click(function() {
+            var txt = $("#msgInput").val();
+            chatCom.emit("newMessage", {
+                type: "userMessage",
+                message: txt
+            });
+        });
+    });
 
-		if(msg.type==="serverMessage"){
-			style="text-info"
-		}
-		else if(msg.type==="myMessage")
-		{
-			style="text-muted";
-		}
-		else if(msg.type==="adminMessage"){
-			style="text-warning";
-		}
+    var displayMessage = function(msg) {
+        var style = "text-primary";
+        var html = [];
 
-		html.push("<p class='" + style + "' >")
-		if(msg.nickname){
-			html.push(msg.nickname+ ": ");
-		}
-		html.push(msg.message);
-		html.push("</p>");
+        if (msg.type === "serverMessage") {
+            style = "text-info"
+        }
+        else if (msg.type === "myMessage") {
+            style = "text-muted";
+        }
+        else if (msg.type === "adminMessage") {
+            style = "text-warning";
+        }
 
-		panel.append(html.join(''));
-	}
+        html.push("<p class='" + style + "' >")
+        if (msg.nickname) {
+            html.push(msg.nickname + ": ");
+        }
+        html.push(msg.message);
+        html.push("</p>");
+
+        panel.append(html.join(''));
+    }
 
 }())

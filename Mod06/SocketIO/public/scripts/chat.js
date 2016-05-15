@@ -1,73 +1,72 @@
-(function(){
+(function() {
 
-	
-	var rootUrl = [document.location.protocol,"//",document.location.host,"/"].join('');
-	var panel;
-	var button;
-	var nickModal;
 
-	$(function(){
+    var rootUrl = [document.location.protocol, "//", document.location.host, "/"].join('');
+    var panel;
+    var button;
+    var nickModal;
 
-		var chatAdmin =io(rootUrl + "chatAdmin");
-		var chatCom =io.connect(rootUrl+ "chatCom");
-		
-		nickModal=$(".modal").modal();
-		nickModal.find("button").click(function(){
-			var nick=nickModal.find('input').val();
-			chatCom.emit("set_name",{nickname:nick});
-		});
+    $(function() {
 
-		chatAdmin.on("adminMessage",function(data){
-			var msg=data;
-			displayMessage(msg);
-		});
-		chatCom.on("newMessage",function(data){
-			displayMessage(data);
-		});
+        var chatAdmin = io(rootUrl + "chatAdmin");
+        var chatCom = io.connect(rootUrl + "chatCom");
 
-		chatCom.on("name_set",function(data){
-			var msg = data;
-			displayMessage({type:"serverMessage",message:"Hi "+ data.nickname});
-			nickModal.modal('hide');
-		});
+        nickModal = $(".modal").modal();
+        nickModal.find("button").click(function() {
+            var nick = nickModal.find('input').val();
+            chatCom.emit("set_name", {nickname: nick});
+        });
 
-		chatCom.on("user_joined",function(data){
-			displayMessage({type:"serverMessage",message:data.nickname + ' Has joined'});
-		});
+        chatAdmin.on("adminMessage", function(data) {
+            var msg = data;
+            displayMessage(msg);
+        });
+        chatCom.on("newMessage", function(data) {
+            displayMessage(data);
+        });
 
-		panel=$("#chatPanel");
-		$("#sendBtn").click(function(){
-			var txt=$("#msgInput").val();
-			chatCom.emit("newMessage",{
-				type:"userMessage",
-				message:txt
-			});
-		});
-	});
+        chatCom.on("name_set", function(data) {
+            var msg = data;
+            displayMessage({type: "serverMessage", message: "Hi " + data.nickname});
+            nickModal.modal('hide');
+        });
 
-	var displayMessage=function(msg){
-		var style = "text-primary";
-		var html=[];
+        chatCom.on("user_joined", function(data) {
+            displayMessage({type: "serverMessage", message: data.nickname + ' Has joined'});
+        });
 
-		if(msg.type==="serverMessage"){
-			style="text-info"
-		}
-		else if(msg.type==="myMessage")
-		{
-			style="text-muted";
-		}
-		else if(msg.type==="adminMessage"){
-			style="text-warning";
-		}
+        panel = $("#chatPanel");
+        $("#sendBtn").click(function() {
+            var txt = $("#msgInput").val();
+            chatCom.emit("newMessage", {
+                type: "userMessage",
+                message: txt
+            });
+        });
+    });
 
-		html.push("<p class='" + style + "' >")
-		if(msg.nickname){
-			html.push(msg.nickname+ ": ");
-		}
-		html.push(msg.message);
-		html.push("</p>");
+    var displayMessage = function(msg) {
+        var style = "text-primary";
+        var html = [];
 
-		panel.append(html.join(''));
-	}
+        if (msg.type === "serverMessage") {
+            style = "text-info"
+        }
+        else if (msg.type === "myMessage") {
+            style = "text-muted";
+        }
+        else if (msg.type === "adminMessage") {
+            style = "text-warning";
+        }
+
+        html.push("<p class='" + style + "' >")
+        if (msg.nickname) {
+            html.push(msg.nickname + ": ");
+        }
+        html.push(msg.message);
+        html.push("</p>");
+
+        panel.append(html.join(''));
+    }
 
 }())

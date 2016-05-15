@@ -1,6 +1,6 @@
-beforeEach(function () {
+beforeEach(function() {
     this.addMatchers({
-        toBeBetween: function (start,end) {
+        toBeBetween: function(start, end) {
             var actual = this.actual;
 
             var pass = actual >= start && actual < end;

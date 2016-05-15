@@ -1,4 +1,4 @@
-var fs=require('fs');
+var fs = require('fs');
 var path = require('path');
 var url = require('url');
 
@@ -11,12 +11,12 @@ var mimeTypes = {
     ".css": "text/css"
 };
 
-var getFilePathFromUrl = function(_url){
+var getFilePathFromUrl = function(_url) {
     var uri = url.parse(_url);
     return path.join(process.cwd(), uri.pathname);
 }
 
-module.exports.GetFileStreamFromUrl=function(_url) {
+module.exports.GetFileStreamFromUrl = function(_url) {
 
     var filepath = getFilePathFromUrl(_url);
 
@@ -25,11 +25,10 @@ module.exports.GetFileStreamFromUrl=function(_url) {
 };
 
 
-
-module.exports.GetMimeTypeFromUrl=function(_url){
+module.exports.GetMimeTypeFromUrl = function(_url) {
     var filepath = getFilePathFromUrl(_url);
 
     var fileExt = path.extname(filepath);
-    return fileExt.length>1 ? mimeTypes[fileExt] : "text/plain";
+    return fileExt.length > 1 ? mimeTypes[fileExt] : "text/plain";
 
 }

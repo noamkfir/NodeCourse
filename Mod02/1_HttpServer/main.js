@@ -1,13 +1,12 @@
 var http = require('http');
 
-http.createServer(function(req,res){
+http.createServer(function(req, res) {
 
     var response = 'Hello World';
-    res.writeHead(200,
-                        {
-                            'Content-Type': 'text/plain',
-                            'Content-Length': response.length
-                        });
+    res.writeHead(200, {
+        'Content-Type': 'text/plain',
+        'Content-Length': response.length
+    });
     res.write(response);
     res.end();
 

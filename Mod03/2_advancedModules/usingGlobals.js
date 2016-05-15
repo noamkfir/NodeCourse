@@ -4,10 +4,10 @@ global.prefix = '|||---~~~>';
 
 logger.log('all good');
 
-setTimeout(function(){
+setTimeout(function() {
     logger.log('going twice');
-},1000);
+}, 1000);
 
-setTimeout(function(){
+setTimeout(function() {
     logger.err('error');
-},2000);
+}, 2000);

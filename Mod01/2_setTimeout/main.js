@@ -1,12 +1,12 @@
-var strat = Date.now();
-//console.log('start: ' + strat);
+var start = Date.now();
+// console.log('start: ' + start);
 
-setTimeout(function (){
-    console.log('Going once: ' + (Date.now() - strat));
     for(var i =0;i < 5000000000; i++){
     }
-},1000);
+setTimeout(function() {
+    console.log('Going once: ' + (Date.now() - start));
+}, 1000);
 
-setTimeout(function (){
-    console.log('Going twice: ' + (Date.now() - strat));
-},2000);
+setTimeout(function() {
+    console.log('Going twice: ' + (Date.now() - start));
+}, 2000);

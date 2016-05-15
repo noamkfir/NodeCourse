@@ -1,6 +1,6 @@
 var should = require('should');
 
-describe("Calculator", function () {
+describe("Calculator", function() {
     var calc;
 
 

@@ -1,29 +1,29 @@
-(function(){
-	var rootUrl = [document.location.protocol,"//",document.location.host,"/"].join('');
-	var panel;
+(function() {
+    var rootUrl = [document.location.protocol, "//", document.location.host, "/"].join('');
+    var panel;
 
-	$(function(){
-		var socket=io.connect(rootUrl);
+    $(function() {
+        var socket = io.connect(rootUrl);
 
-		socket.on("message",function(data){
-			var tweet = JSON.parse(data);
-			displayTweet(tweet);
-		});	
+        socket.on("message", function(data) {
+            var tweet = JSON.parse(data);
+            displayTweet(tweet);
+        });
 
-		panel=$("#tweetPanel");
+        panel = $("#tweetPanel");
 
-	});
+    });
 
-	var displayTweet=function(tweet){
-		var style = "text-primary pull-left";
-		var html=[];
-		html.push("<div class='clearfix' style='margin-top:5px;' >");
-		html.push("<img src='"+ tweet.imageUrl +"' class='pull-left' />")
-		html.push("<p class='" + style + "' style='margin-left:5px; width:90%;' >")
-		html.push(tweet.text);
-		html.push("</p></div>");
+    var displayTweet = function(tweet) {
+        var style = "text-primary pull-left";
+        var html = [];
+        html.push("<div class='clearfix' style='margin-top:5px;' >");
+        html.push("<img src='" + tweet.imageUrl + "' class='pull-left' />")
+        html.push("<p class='" + style + "' style='margin-left:5px; width:90%;' >")
+        html.push(tweet.text);
+        html.push("</p></div>");
 
-		panel.append(html.join(''));	
-	}
+        panel.append(html.join(''));
+    }
 
 }())

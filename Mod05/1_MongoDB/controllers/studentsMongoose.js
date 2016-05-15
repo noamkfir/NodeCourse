@@ -9,14 +9,14 @@ var studentSchema = mongoose.Schema({
     img: String
 })
 
-var Student = mongoose.model('Student', studentSchema,'students');
+var Student = mongoose.model('Student', studentSchema, 'students');
 
-exports.init = function(app){
+exports.init = function(app) {
 
     // adding a get route for all students
-    app.get('/',function(req,res){
+    app.get('/', function(req, res) {
 
-        Student.find({},function(err, result){
+        Student.find({}, function(err, result) {
 
             // when we get the data back, we pass it to the view
             var model = {};
@@ -27,12 +27,12 @@ exports.init = function(app){
     });
 
     // adding a get route for a specific student
-    app.get('/students/:id',function(req,res){
+    app.get('/students/:id', function(req, res) {
 
-        Student.findOne({ id: req.params.id },  function(err, item) {
+        Student.findOne({id: req.params.id}, function(err, item) {
 
-                // when we get the data back, we pass it to the view
-                res.render('student', item);
+            // when we get the data back, we pass it to the view
+            res.render('student', item);
         });
     });
 };

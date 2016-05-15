@@ -11,39 +11,42 @@ var twit = new twitter({
     access_token_secret: 'ZQIglQ5XNIskkiQUyoIqrcNhgti06V5j6gKdcfd8TBtvP'
 });
 
-app.set('view engine','jade');
-app.set('views',__dirname + "/views");
-app.use(express.static(__dirname+'/public'));
+app.set('view engine', 'jade');
+app.set('views', __dirname + "/views");
+app.use(express.static(__dirname + '/public'));
 
-var port= process.env.PORT || 3000;
-app.get("/",function(req,res){
-	res.render("home");
+var port = process.env.PORT || 3000;
+app.get("/", function(req, res) {
+    res.render("home");
 })
 
-var server=http.createServer(app).listen(port,function(){
- console.log("server starter on "+ port);
+var server = http.createServer(app).listen(port, function() {
+    console.log("server starter on " + port);
 });
 
 io = io.listen(server);
 
-io.sockets.on("connection",function(socket){ 
-	twit.stream('statuses/filter',{track:'node,nodejs,javascript,html5,angular,angularjs' ,language:'en'},function(stream) {
-	    stream.on('data', function(data) {
-	    	if(data && data.user){
-		    	var tweet={
-		    		text:data.text,
-		    		imageUrl:data.user.profile_image_url    		
-		    	}
-	    	 	console.log(tweet);
-	    	 	socket.send(JSON.stringify(tweet));
-		    }
-	       
-	    });
-	    stream.on('error', function(data) {
-	    	 	console.log("Error:"+data);
-	    });
-	});
-	
+io.sockets.on("connection", function(socket) {
+    twit.stream('statuses/filter', {
+        track: 'node,nodejs,javascript,html5,angular,angularjs',
+        language: 'en'
+    }, function(stream) {
+        stream.on('data', function(data) {
+            if (data && data.user) {
+                var tweet = {
+                    text: data.text,
+                    imageUrl: data.user.profile_image_url
+                }
+                console.log(tweet);
+                socket.send(JSON.stringify(tweet));
+            }
+
+        });
+        stream.on('error', function(data) {
+            console.log("Error:" + data);
+        });
+    });
+
 });
 
 
