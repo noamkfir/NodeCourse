@@ -1,19 +1,21 @@
 /*
- Build a simple Http static files server,
- The server should accept http request and serve the file with an appropriate mime type.
- If the file doesn't exist return 404
+ Build a simple HTTP static file server.
+ The server should accept an HTTP request and serve the file with an appropriate mime type.
+ If the file doesn't exist return 404.
  Use only core nodejs modules.
  */
 
-/* these are the modules you need, go to their documentation and learn how to use them. */
+/*
+ These are the modules you need.
+ Go to their documentation and learn how to use them.
+ */
 var fs = require('fs');
 var http = require('http');
 var path = require('path');
 var url = require('url');
 /***********************************/
 
-
-//Request handler function.
+// request handler function
 var reqHandler = function(req, res) {
 
     // var uri = you will need the url module here to parse the request url */

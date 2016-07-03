@@ -1,7 +1,19 @@
+/*
+ Build a simple HTTP static file server.
+ The server should accept an HTTP request and serve the file with an appropriate mime type.
+ If the file doesn't exist return 404.
+ Use only core nodejs modules.
+ */
+
+/*
+ These are the modules you need.
+ Go to their documentation and learn how to use them.
+ */
 var fs = require('fs');
 var http = require('http');
 var path = require('path');
 var url = require('url');
+/***********************************/
 
 var mimeTypes = {
     ".html": "text/html",
