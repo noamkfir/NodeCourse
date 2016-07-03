@@ -1,4 +1,4 @@
-var express = require('express')
+var express = require('express');
 var http = require('http');
 var io = require("socket.io");
 var twitter = require('twitter');
@@ -18,7 +18,7 @@ app.use(express.static(__dirname + '/public'));
 var port = process.env.PORT || 3000;
 app.get("/", function(req, res) {
     res.render("home");
-})
+});
 
 var server = http.createServer(app).listen(port, function() {
     console.log("server starter on " + port);
@@ -36,28 +36,13 @@ io.sockets.on("connection", function(socket) {
                 var tweet = {
                     text: data.text,
                     imageUrl: data.user.profile_image_url
-                }
+                };
                 console.log(tweet);
                 socket.send(JSON.stringify(tweet));
             }
-
         });
         stream.on('error', function(data) {
             console.log("Error:" + data);
         });
     });
-
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
