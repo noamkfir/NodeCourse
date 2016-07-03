@@ -13,9 +13,13 @@ var server = http.createServer(function(req, res) {
         req.on('end', function() {
             var obj = JSON.parse(body);
 
-            var response = '<html><body><h1>' + obj.name +
-                '</h1><b>' + obj.msgText +
-                '</b></body></html>';
+            var response =
+                '<html>' +
+                '<body>' +
+                '<h1>' + obj.name + '</h1>' +
+                '<b>' + obj.text + '</b>' +
+                '</body>' +
+                '</html>';
 
             res.writeHead(200, {
                 'Content-Type': 'text/html',
