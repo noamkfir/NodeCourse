@@ -1,11 +1,11 @@
-var eventEmitter = require('events').EventEmitter;
+const { EventEmitter } = require('events');
 
 module.exports.bla = function() {
 
-    e = new eventEmitter();
+    const e = new EventEmitter();
 
     setTimeout(function() {
-        e.emit('data', 'some data');
+        e.emit('data', 'some data', 1, true);
     }, 1000);
 
     setTimeout(function() {
@@ -13,4 +13,5 @@ module.exports.bla = function() {
     }, 2000);
 
     return (e);
-}
+
+};
