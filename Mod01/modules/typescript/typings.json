@@ -1,0 +1,10 @@
+{
+  "name": "typescript",
+  "version": false,
+  "dependencies": {
+    "moment": "registry:npm/moment#2.10.5+20160211003958"
+  },
+  "ambientDependencies": {
+    "node": "registry:dt/node#6.0.0+20160514165920"
+  }
+}

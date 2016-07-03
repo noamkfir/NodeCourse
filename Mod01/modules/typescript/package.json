@@ -1,0 +1,18 @@
+{
+  "name": "typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "es6.js",
+  "scripts": {
+    "start": "echo 'hello'",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "hello": "echo 'running hello'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "moment": "^2.13.0"
+  }
+}
