@@ -13,6 +13,7 @@ strm2.setEncoding('utf8');
 
 strm1.on('data', function(data) {
     console.log('read from strm1'.red);
+    console.log(data);
 });
 
 strm1.on('end', function() {
@@ -26,3 +27,5 @@ strm2.on('data', function(data) {
 strm2.on('end', function() {
     console.log('ended strm2')
 });
+
+// strm1.pipe(process.stdout);
