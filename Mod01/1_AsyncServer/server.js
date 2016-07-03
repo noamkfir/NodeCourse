@@ -10,7 +10,7 @@ var options = {
 var handleRequests = function(req, res) {
 
     // creating an outgoing HTTP request
-    req = http.request(options, function(response) {
+    var request = http.request(options, function(response) {
 
         var str = "";
         response.on('data', function(chunk) {
@@ -23,7 +23,7 @@ var handleRequests = function(req, res) {
         });
 
     });
-    req.end();
+    request.end();
 };
 
 http.createServer(handleRequests).listen(3000);
