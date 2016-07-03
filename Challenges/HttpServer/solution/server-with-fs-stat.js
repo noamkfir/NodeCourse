@@ -19,17 +19,28 @@ var url = require('url');
 var reqHandler = function(req, res) {
 
     // you will need the url module here to parse the request url
-    var uri;
+    var uri = url.parse(req.url);
 
     // use the path module and process global object to build the physical path from the uri
-    var filePath;
+    var filePath = path.join(process.cwd(), uri.pathname);
 
     /*
      after parsing and building the requested file path,
      use the fs module to determine if the file exists
      and write its content to the response stream
      */
+    fs.stat(filePath, (err, stats) => {
+        if (err) {
+            res.statusCode = 404;
+            res.end('The requested file could not be found');
+        }
+        else if (stats.isFile()) {
+            fs.createReadStream(filePath).pipe(res);
+        }
+    });
 
 };
 
 // use the http module to create a server and start listening
+var server = http.createServer(reqHandler);
+server.listen('3000');
