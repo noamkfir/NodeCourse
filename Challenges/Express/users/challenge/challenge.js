@@ -1,7 +1,7 @@
 /*
  Create an app with register,login and a My Account page with a user welcome message.
  My account requires login, you should authenticate the user.
- Your app should save the users in a mongo db instance, and upon succesful login 
+ Your app should save the users in a mongo db instance, and upon successful login
  save it in a session.
  */
 
