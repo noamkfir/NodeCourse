@@ -5,9 +5,10 @@ var server = http.createServer(function(req, res) {
 
     var parsed = url.parse(req.url);
 
-    var resStr = 'Request relative URI ' + parsed.path + '\n' +
+    var resStr =
+        'Request relative URI ' + parsed.path + '\n' +
         'Request path: ' + parsed.pathname + '\n' +
-        'Request query string: \n' + parsed.query;
+        'Request query string: ' + parsed.query;
 
     res.writeHead(200, {
         'Content-Type': 'text/plain',

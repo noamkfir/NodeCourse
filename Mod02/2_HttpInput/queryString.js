@@ -7,10 +7,11 @@ var server = http.createServer(function(req, res) {
     var parsed = url.parse(req.url);
     var query = qs.parse(parsed.query);
 
-    var resStr = 'Request relative URI ' + parsed.path + '\n' +
+    var resStr =
+        'Request relative URI ' + parsed.path + '\n' +
         'Request path: ' + parsed.pathname + '\n' +
         'name: ' + query.name + '\n' +
-        'Id: ' + query.id + '\n' +
+        'id: ' + query.id + '\n' +
         'conf: ' + query.conf
 
     res.writeHead(200, {
