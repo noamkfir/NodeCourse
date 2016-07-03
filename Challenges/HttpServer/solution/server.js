@@ -24,33 +24,36 @@ var mimeTypes = {
     ".css": "text/css"
 };
 
-
+// request handler function
 var reqHandler = function(req, res) {
-    console.log(req.path);
-    console.log(process.cwd());
+
+    // you will need the url module here to parse the request url
     var uri = url.parse(req.url);
-    var filepath = path.join(process.cwd(), uri.pathname);
+
+    // use the path module and process global object to build the physical path from the uri
+    var filePath = path.join(process.cwd(), uri.pathname);
 
     var fileExt = path.extname(filepath);
     var mimeType = fileExt.length > 1 ? mimeTypes[fileExt] : "text/plain";
 
-
-    var stream = fs.createReadStream(filepath);
+    /*
+     after parsing and building the requested file path,
+     use the fs module to determine if the file exists
+     and write its content to the response stream
+     */
+    var stream = fs.createReadStream(filePath);
     res.writeHead(200, {'Content-Type': mimeType});
 
     stream.on('error', function(err) {
         res.writeHead(404);
-        res.write("Whoops.. file not found.");
+        res.write('Whoops... file not found.');
         res.end();
-        return;
     });
 
     stream.pipe(res);
 
-    return;
-
 };
 
+// use the http module to create a server and start listening
 var server = http.createServer(reqHandler);
-
 server.listen('3000');

@@ -18,15 +18,16 @@ var url = require('url');
 // request handler function
 var reqHandler = function(req, res) {
 
-    // var uri = you will need the url module here to parse the request url */
+    // you will need the url module here to parse the request url
+    var uri;
 
-    // var filepath= use the path module and process global object to build the physical path from the uri;
-    // var fileExt = you can also use the path module here to get the file extension.
+    // use the path module and process global object to build the physical path from the uri
+    var filePath;
 
     /*
-     after parsing and building the requested file path use the fs module
-     to determine if the file exists and writing it's content to the response stream
-
+     after parsing and building the requested file path,
+     use the fs module to determine if the file exists
+     and write its content to the response stream
      */
 
 
@@ -34,4 +35,4 @@ var reqHandler = function(req, res) {
 
 };
 
-// here is where you will be using the http module to create a server and start listening
+// use the http module to create a server and start listening
