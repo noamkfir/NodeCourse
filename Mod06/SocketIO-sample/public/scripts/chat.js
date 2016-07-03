@@ -1,6 +1,7 @@
 (function() {
 
-    var rootUrl = [document.location.protocol, "//", document.location.host, "/"].join('');
+    // var rootUrl = [document.location.protocol, "//", document.location.host, "/"].join('');
+    const rootUrl = `${document.location.protocol}//${document.location.host}/`;
     var panel;
     var button;
     var nickModal;
