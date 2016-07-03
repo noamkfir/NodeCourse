@@ -1,4 +1,6 @@
 /*
- Create a simple node application which receives a full file path and prints it's content to the console.
- The application should validate if the file exists and if the path is a directory a different error message for each case.
+Create a simple node application which receives a full file path
+  and prints its content to the console. The application should
+  validate that the file exists and check if the path is a
+  directory. A different message should be shown for each case.
  */
