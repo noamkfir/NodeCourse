@@ -11,14 +11,14 @@ app.set("views", path.join(__dirname, "views"));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(session({
     secret: "node workshop"
-}))
+}));
 app.use(function(req, res, next) {
     if (req.session.user) {
         res.locals.isAuthenticated = true;
         res.locals.currentUser = req.session.user
     }
     next();
-})
+});
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -30,4 +30,4 @@ var server = app.listen(3000, function() {
     var port = server.address().port;
 
     console.log('Express Server listening at http://%s:%s', host, port);
-})
+});

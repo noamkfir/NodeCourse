@@ -2,7 +2,7 @@ var User = function(username, email, password) {
     this.username = username;
     this.email = email;
     this.password = password;
-}
+};
 
 var UserService = function() {
     var users = [];
@@ -25,7 +25,7 @@ var UserService = function() {
     this.all = function() {
         return users;
     }
-}
+};
 
 module.exports.User = User;
 module.exports.service = new UserService();

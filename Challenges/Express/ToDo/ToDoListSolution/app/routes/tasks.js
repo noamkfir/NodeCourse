@@ -5,7 +5,6 @@ var router = express.Router();
 
 router.route("/")
     .get(function(req, res, next) {
-
         var completed;
         if (req.params.state) {
             completed = req.params.state === 'completed';
@@ -29,6 +28,6 @@ router.route("/")
         taskService.deleteTasks(req.body.tasks, function tasksDeleted(err, tasks) {
             res.send(tasks);
         });
-    })
+    });
 
 module.exports = router;

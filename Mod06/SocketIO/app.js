@@ -16,9 +16,3 @@ chatService.init(server);
 server.listen(port, function() {
     console.log("server starter on " + port);
 });
-
-
-
-
-
-
