@@ -4,23 +4,23 @@ Create a simple node application which receives a full file path
   validate that the file exists and check if the path is a
   directory. A different message should be shown for each case.
  */
-var fs = require('fs');
+const fs = require('fs');
 
-var filePath = process.argv[2];
+const path = process.argv[2];
 
+fs.stat(path, (err, stats) => {
 
-fs.stat(filePath, function(err, stats) {
-    if (err) {
-        return console.log("File not found");
-    }
-    if (stats.isDirectory()) {
-        return console.log("No file in path");
+    if(err) {
+        console.error('File not found:', err);
+        return;
     }
 
-    var stream = fs.createReadStream(filePath, 'utf8');
+    if(stats.isDirectory()) {
+        console.error('The path is a directory');
+        return;
+    }
 
-    stream.pipe(process.stdin);
+    const stream = fs.createReadStream(path, 'utf-8');
+    stream.pipe(process.stdout);
 
 });
-
-
