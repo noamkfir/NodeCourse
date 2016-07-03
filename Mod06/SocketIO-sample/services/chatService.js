@@ -13,7 +13,7 @@ module.exports.init = function(server) {
 
     io.on("connection", function(socket) {
         socket.emit("newMessage", new Message("serverMessage"
-            , "Welcome To incrediable chat"));
+            , "Welcome To incredible chat"));
 
         socket.on("newMessage", function(data) {
             data.nickname = socket.nickname;
